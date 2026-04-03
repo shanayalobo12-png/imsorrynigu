@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry ❤️</title>
+<style>
+    body {
+        background: linear-gradient(to bottom right, #ffd6e7, #ffe6f0);
+        font-family: 'Comic Sans MS', cursive;
+        text-align: center;
+        padding: 30px;
+        overflow: hidden;
+    }
+
+    h1 {
+        font-size: 40px;
+        color: #ff4d88;
+    }
+
+    p {
+        font-size: 20px;
+        color: #333;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    button {
+        background-color: #ff4d88;
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        font-size: 18px;
+        border-radius: 20px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #ff1a66;
+    }
+
+    .flower {
+        position: absolute;
+        font-size: 30px;
+        animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-10vh); }
+        100% { transform: translateY(110vh); }
+    }
+
+    #gameBox {
+        margin-top: 30px;
+        padding: 20px;
+        background: white;
+        border-radius: 20px;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+<h1>I'm Really Sorry ❤️</h1>
+
+<p>
+I know I messed up.  
+But I love you a lot and I hate fighting with you.  
+So I made this tiny website to say sorry.  
+Please press the buttons below 🥺
+</p>
+
+<button onclick="forgive()">Forgive Me?</button>
+<button onclick="love()">Press if you love me</button>
+
+<div id="gameBox">
+    <h2>Mini Game: Catch the Heart 💖</h2>
+    <p>Score: <span id="score">0</span></p>
+    <button onclick="addScore()">Catch ❤️</button>
+</div>
+
+<script>
+    let score = 0;
+
+    function forgive() {
+        alert("You are the best boyfriend ever. I am really really sorry. ❤️");
+    }
+
+    function love() {
+        alert("I love you more than you love me 😌❤️");
+    }
+
+    function addScore() {
+        score++;
+        document.getElementById("score").innerText = score;
+        if(score == 10){
+            alert("Yay! You caught 10 hearts. Reward: 1 Kiss Coupon 💋");
+        }
+    }
+
+    // Falling flowers
+    function createFlower() {
+        const flower = document.createElement("div");
+        flower.classList.add("flower");
+        flower.innerHTML = "🌸";
+        flower.style.left = Math.random() * window.innerWidth + "px";
+        flower.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(flower);
+
+        setTimeout(() => {
+            flower.remove();
+        }, 5000);
+    }
+
+    setInterval(createFlower, 300);
+</script>
+
+</body>
+</html>
